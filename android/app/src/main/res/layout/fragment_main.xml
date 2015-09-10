@@ -15,88 +15,100 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <LinearLayout
-                android:orientation="vertical"
+                style="@style/MainMenuItemContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/main_startreading"
+                    android:textAppearance="@style/MainMenuTextAppearance"
                     />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Genesis 1"/>
+                    android:text="Genesis 1"
+                    android:textAppearance="@style/MainMenuSubTextAppearance"/>
             </LinearLayout>
             <LinearLayout
-                android:orientation="vertical"
+                style="@style/MainMenuItemContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/main_books"
+                    android:textAppearance="@style/MainMenuTextAppearance"
                     />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Almeida Corrigida Fiel"/>
+                    android:text="Almeida Corrigida Fiel"
+                    android:textAppearance="@style/MainMenuSubTextAppearance"/>
             </LinearLayout>
             <LinearLayout
-                android:orientation="vertical"
+                style="@style/MainMenuItemContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/main_bookmarks"
+                    android:textAppearance="@style/MainMenuTextAppearance"
                     />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="50 bookmarks"/>
+                    android:text="50 bookmarks"
+                    android:textAppearance="@style/MainMenuSubTextAppearance"/>
             </LinearLayout>
             <LinearLayout
-                android:orientation="vertical"
+                style="@style/MainMenuItemContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/main_search"
+                    android:textAppearance="@style/MainMenuTextAppearance"
                     />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/main_search_detail"/>
+                    android:text="@string/main_search_detail"
+                    android:textAppearance="@style/MainMenuSubTextAppearance"/>
             </LinearLayout>
             <LinearLayout
-                android:orientation="vertical"
+                style="@style/MainMenuItemContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/main_settings"
+                    android:textAppearance="@style/MainMenuTextAppearance"
                     />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/main_settings_detail"/>
+                    android:text="@string/main_settings_detail"
+                    android:textAppearance="@style/MainMenuSubTextAppearance"/>
             </LinearLayout>
             <LinearLayout
-                android:orientation="vertical"
+                style="@style/MainMenuItemContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/main_about"
+                    android:textAppearance="@style/MainMenuTextAppearance"
                     />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/main_about_details"/>
+                    android:text="@string/main_about_details"
+                    android:textAppearance="@style/MainMenuSubTextAppearance"/>
             </LinearLayout>
         </LinearLayout>
 
