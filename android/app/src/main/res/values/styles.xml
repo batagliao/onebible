@@ -6,7 +6,6 @@
     </style>
 
     <style name="NoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/android_green</item>
     </style>
 
     <style name="MainMenuItemContainer">
