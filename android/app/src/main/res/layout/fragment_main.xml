@@ -1,8 +1,10 @@
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-     android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    >
 
     <!-- Your Scrollable View -->
     <android.support.v4.widget.NestedScrollView
@@ -116,7 +118,9 @@
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="192dp">
+        android:layout_height="192dp"
+        android:fitsSystemWindows="true"
+        >
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
@@ -124,7 +128,48 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             android:fitsSystemWindows="true"
             app:contentScrim="@color/LightSlateGray"
+            app:expandedTitleMarginStart="48dp"
+            app:expandedTitleMarginEnd="64dp"
             >
+
+            <!-- app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed" -->
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:layout_collapseMode="parallax">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/main_back_01"
+                    android:scaleType="centerCrop"
+
+                    />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginTop="32dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/VerseOfTheDayAppearance"
+                        android:text="Make thee an ark of gopher wood; rooms shalt thou make in the ark, and shalt pitch it within and without with pitch"
+                        />
+                    <TextView
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/VerseOfTheDayAppearance.Address"
+                        android:text="Gn 6:14"/>
+                </LinearLayout>
+
+            </FrameLayout>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -132,17 +177,11 @@
                 android:layout_height="?attr/actionBarSize"
                 android:title="@string/app_name"
                 app:title="@string/app_name"
-                app:layout_scrollFlags="scroll|enterAlways"/>
+                app:layout_collapseMode="pin" />
+            <!--
+                app:layout_scrollFlags="scroll|enterAlways"/> -->
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/main_back_01"
-                android:scaleType="centerCrop"
-                app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
-                app:layout_collapseMode="parallax"
-                android:minHeight="100dp"
-                />
+
 
         </android.support.design.widget.CollapsingToolbarLayout>
 

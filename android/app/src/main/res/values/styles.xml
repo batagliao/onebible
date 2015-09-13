@@ -29,4 +29,18 @@
         <item name="android:textColor">@color/secondary_text_material_light</item>
     </style>
 
+    <style name="VerseOfTheDayAppearance">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/primary_text_default_material_dark</item>
+    </style>
+
+    <style name="VerseOfTheDayAppearance.Address">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/primary_text_default_material_dark</item>
+    </style>
+
 </resources>
