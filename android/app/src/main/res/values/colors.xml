@@ -6,6 +6,8 @@ Organized by: Willie Tsang
 -->
 <resources>
 
+    <color name="transparent">#00000000</color>
+
     <color name="background_material_dark">#ff212121</color>
     <color name="background_material_light">#fffafafa</color>
 

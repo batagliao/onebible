@@ -127,9 +127,11 @@
             android:layout_height="match_parent"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             android:fitsSystemWindows="true"
-            app:contentScrim="@color/LightSlateGray"
-            app:expandedTitleMarginStart="48dp"
-            app:expandedTitleMarginEnd="64dp"
+            app:contentScrim="@color/material_blue_grey_500"
+            app:statusBarScrim="@color/material_blue_grey_500"
+            app:collapsedTitleGravity="center"
+            app:expandedTitleGravity="center"
+            app:expandedTitleTextAppearance="@style/ExpandedTextAppearance"
             >
 
             <!-- app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed" -->
@@ -160,13 +162,36 @@
                         android:textAppearance="@style/VerseOfTheDayAppearance"
                         android:text="Make thee an ark of gopher wood; rooms shalt thou make in the ark, and shalt pitch it within and without with pitch"
                         />
-                    <TextView
-                        android:layout_marginStart="20dp"
-                        android:layout_marginEnd="16dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="@style/VerseOfTheDayAppearance.Address"
-                        android:text="Gn 6:14"/>
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:gravity="end"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_marginEnd="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/VerseOfTheDayAppearance.Address"
+                            android:fontFamily="sans-serif-black"
+                            android:text="Gn"/>
+                        <TextView
+                            android:layout_marginEnd="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/VerseOfTheDayAppearance.Address"
+                            android:text="6"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/VerseOfTheDayAppearance.Address"
+                            android:fontFamily="sans-serif-light"
+                            android:text="14"
+                            />
+                    </LinearLayout>
+
                 </LinearLayout>
 
             </FrameLayout>
@@ -175,8 +200,8 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:title="@string/app_name"
                 app:title="@string/app_name"
+
                 app:layout_collapseMode="pin" />
             <!--
                 app:layout_scrollFlags="scroll|enterAlways"/> -->

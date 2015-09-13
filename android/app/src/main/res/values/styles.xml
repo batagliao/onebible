@@ -38,9 +38,13 @@
 
     <style name="VerseOfTheDayAppearance.Address">
         <item name="android:textSize">20sp</item>
-        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:fontFamily">sans-serif</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:textColor">@color/primary_text_default_material_dark</item>
+        <item name="android:textColor">@color/secondary_text_material_dark</item>
+    </style>
+
+    <style name="ExpandedTextAppearance">
+        <item name="android:textColor">@color/transparent</item>
     </style>
 
 </resources>
