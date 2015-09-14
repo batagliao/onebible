@@ -2,6 +2,8 @@
     <string name="app_name">OneBible</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Main page -->
     <string name="main_books">Books</string>
     <string name="main_startreading">Start reading</string>
     <string name="main_bookmarks">Bookmarks</string>
@@ -11,4 +13,9 @@
     <string name="main_settings_detail">Adjust the app the way you like</string>
     <string name="main_about">About</string>
     <string name="main_about_details">More about the app</string>
+    <string name="main_help">Help</string>
+    <string name="main_help_details">Get help on how to use this app</string>
+    <string name="main_contribute">Contribute</string>
+    <string name="main_contribute_details">Help to make this app better</string>
+
 </resources>
