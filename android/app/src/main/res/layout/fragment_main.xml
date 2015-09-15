@@ -163,19 +163,24 @@
 
             <!-- app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed" -->
 
-            <FrameLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_collapseMode="parallax">
 
                 <ImageView
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="100dp"
+                    android:layout_alignStart="@+id/verseOfTheDayLayout"
+                    android:layout_alignEnd="@+id/verseOfTheDayLayout"
+                    android:layout_alignTop="@+id/verseOfTheDayLayout"
+                    android:layout_alignBottom="@+id/verseOfTheDayLayout"
                     android:src="@drawable/main_back_01"
                     android:scaleType="centerCrop"
 
                     />
                 <LinearLayout
+                    android:id="@+id/verseOfTheDayLayout"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -190,6 +195,7 @@
                         />
                     <LinearLayout
                         android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"
                         android:layout_marginEnd="20dp"
                         android:gravity="end"
                         android:orientation="horizontal"
@@ -220,7 +226,7 @@
 
                 </LinearLayout>
 
-            </FrameLayout>
+            </RelativeLayout>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
