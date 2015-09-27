@@ -1,9 +1,13 @@
 package com.batagliao.onebible;
 
 import android.app.Application;
+import android.content.res.Resources;
 
+import com.batagliao.onebible.models.Bible;
 import com.batagliao.onebible.util.Consts;
 import com.pixplicity.easyprefs.library.Prefs;
+
+import java.io.IOException;
 
 
 public class BibleApplication extends Application {
@@ -15,6 +19,10 @@ public class BibleApplication extends Application {
         return instance;
     }
 
+
+    public Resources getAppResources(){
+        return getResources();
+    }
 
     public void onCreate() {
         super.onCreate();
@@ -28,12 +36,19 @@ public class BibleApplication extends Application {
                 .setUseDefaultSharedPreference(true)
                 .build();
 
-        String selectedTranslation = Prefs.getString(Consts.SELECTED_TRANSLATION_KEY, String.valueOf(R.string.defaultTranslation));
+        //get selected bible translation
+        String selectedTranslation = Prefs.getString(Consts.SELECTED_TRANSLATION_KEY, getResources().getString(R.string.defaultTranslation));
 
 
-
-        //load settings
         //load bible
+        try {
+            Bible.Load(selectedTranslation);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            //TODO: treat exception
+        }
+
     }
 }
 
