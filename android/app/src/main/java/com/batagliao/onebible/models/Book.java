@@ -1,22 +1,22 @@
 package com.batagliao.onebible.models;
 
-
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.ElementList;
-import org.simpleframework.xml.Root;
-
 import java.util.List;
 
-@Root(name = "b")
 public class Book {
 
-    @Attribute(name = "o")
     private int bookOrder;
 
-    @ElementList(inline = true)
+    public List<Chapter> getChapters() {
+        return chapters;
+    }
+
     private List<Chapter> chapters;
 
     public int getBookOrder() {
         return bookOrder;
+    }
+
+    public void setBookOrder(int bookOrder) {
+        this.bookOrder = bookOrder;
     }
 }

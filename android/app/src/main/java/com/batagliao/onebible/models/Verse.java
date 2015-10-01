@@ -1,16 +1,9 @@
 package com.batagliao.onebible.models;
 
-import org.simpleframework.xml.Attribute;
-import org.simpleframework.xml.Root;
-import org.simpleframework.xml.Text;
-
-@Root(name = "v")
 public class Verse {
 
-    @Attribute(name = "n")
     private int verseOrder;
 
-    @Text
     private String text;
 
     public int getVerseOrder() {
@@ -19,5 +12,13 @@ public class Verse {
 
     public String getText() {
         return text;
+    }
+
+    public void setVerseOrder(int verseOrder) {
+        this.verseOrder = verseOrder;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 }
