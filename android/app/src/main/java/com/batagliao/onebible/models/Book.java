@@ -1,8 +1,13 @@
 package com.batagliao.onebible.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Book {
+
+    public Book() {
+        chapters = new ArrayList<>();
+    }
 
     private int bookOrder;
 

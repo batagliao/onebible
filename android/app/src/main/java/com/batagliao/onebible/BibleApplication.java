@@ -20,7 +20,7 @@ public class BibleApplication extends Application {
     }
 
 
-    public Resources getAppResources(){
+    public Resources getAppResources() {
         return getResources();
     }
 
@@ -42,13 +42,23 @@ public class BibleApplication extends Application {
 
         //load bible
         try {
-            Bible.Load(selectedTranslation);
-
+            setCurrentBible(Bible.Load(selectedTranslation));
         } catch (Exception e) {
             e.printStackTrace();
             //TODO: treat exception
         }
 
+    }
+
+
+    private Bible currentBible;
+
+    public Bible getCurrentBible() {
+        return currentBible;
+    }
+
+    public void setCurrentBible(Bible currentBible) {
+        this.currentBible = currentBible;
     }
 }
 

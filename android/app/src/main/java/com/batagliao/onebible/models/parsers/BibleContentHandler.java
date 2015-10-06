@@ -29,6 +29,10 @@ public class BibleContentHandler extends DefaultHandler {
             //read attributes
         }
 
+        if (localName.equalsIgnoreCase("title")) {
+            elementOn = true;
+        }
+
         if (localName.equalsIgnoreCase("b")) { //book
             currentBook = new Book();
             int order = Integer.parseInt(attributes.getValue("o")); //order
@@ -47,6 +51,8 @@ public class BibleContentHandler extends DefaultHandler {
             int number = Integer.parseInt(attributes.getValue("n")); //number
             currentVerse.setVerseOrder(number);
         }
+
+
     }
 
     @Override

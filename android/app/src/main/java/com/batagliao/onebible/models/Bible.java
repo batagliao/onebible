@@ -6,13 +6,16 @@ import com.batagliao.onebible.models.parsers.BibleSaxParser;
 import com.batagliao.onebible.util.Consts;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Bible {
 
     private List<Book> books;
 
-
+    public Bible() {
+        books = new ArrayList<>();
+    }
 
     private String title;
 
