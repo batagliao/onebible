@@ -21,7 +21,6 @@ public class Bible {
 
     public static Bible Load(String name) throws Exception {
 
-        //TODO: improve performance
         String filename = Consts.BIB_FOLDER + "/" + name + Consts.BIB_FILE_EXTENSION;
         InputStream iS = null;
         try {

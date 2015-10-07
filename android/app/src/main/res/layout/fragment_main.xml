@@ -1,10 +1,19 @@
-<android.support.design.widget.CoordinatorLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.batagliao.onebible.viewmodels.MainPageViewModel"/>
+
+    </data>
+<android.support.design.widget.CoordinatorLayout
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     >
-
     <!-- Your Scrollable View -->
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -191,7 +200,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/VerseOfTheDayAppearance"
-                        android:text="Make thee an ark of gopher wood; rooms shalt thou make in the ark, and shalt pitch it within and without with pitch"
+                        android:text="@{viewmodel.mainVerseText}"
                         />
                     <LinearLayout
                         android:layout_marginTop="10dp"
@@ -248,3 +257,4 @@
     </android.support.design.widget.AppBarLayout>
 
 </android.support.design.widget.CoordinatorLayout>
+</layout>
