@@ -1,5 +1,7 @@
 package com.batagliao.onebible.models;
 
+import com.batagliao.onebible.util.BibleHelper;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,5 +25,9 @@ public class Book {
 
     public void setBookOrder(int bookOrder) {
         this.bookOrder = bookOrder;
+    }
+
+    public String getBookName(){
+        return BibleHelper.getBookName(bookOrder);
     }
 }

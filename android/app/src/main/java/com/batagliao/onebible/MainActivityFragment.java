@@ -26,7 +26,7 @@ public class MainActivityFragment extends Fragment {
 
         MainPageViewModel viewModel = new MainPageViewModel();
         viewModel.pickRandomVerse();
-
+        
         binding.setViewmodel(viewModel);
         return binding.getRoot();
     }

@@ -1,6 +1,7 @@
 package com.batagliao.onebible;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.res.Resources;
 
 import com.batagliao.onebible.models.Bible;
@@ -15,13 +16,10 @@ public class BibleApplication extends Application {
 
     private static BibleApplication instance;
 
+    private Bible currentBible;
+
     public static BibleApplication getInstance() {
         return instance;
-    }
-
-
-    public Resources getAppResources() {
-        return getResources();
     }
 
     public void onCreate() {
@@ -39,7 +37,6 @@ public class BibleApplication extends Application {
         //get selected bible translation
         String selectedTranslation = Prefs.getString(Consts.SELECTED_TRANSLATION_KEY, getResources().getString(R.string.defaultTranslation));
 
-
         //load bible
         try {
             setCurrentBible(Bible.Load(selectedTranslation));
@@ -50,9 +47,6 @@ public class BibleApplication extends Application {
 
     }
 
-
-    private Bible currentBible;
-
     public Bible getCurrentBible() {
         return currentBible;
     }
@@ -60,6 +54,8 @@ public class BibleApplication extends Application {
     public void setCurrentBible(Bible currentBible) {
         this.currentBible = currentBible;
     }
+
+
 }
 
 
