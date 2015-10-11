@@ -16,22 +16,15 @@ import java.util.Random;
 public class MainPageViewModel extends ViewModelBase {
 
     private String mainVerseText = "";
+    private String mainVerseBookAbbrev = "";
+    private int mainVerseChapter = 0;
+    private int mainVerseOrder = 0;
 
     private String startOrContinueTitleText = "";
 
     private String startOrContinueDetailText = "";
 
     private String BibleName = "";
-
-    @Bindable
-    public String getMainVerseText() {
-        return mainVerseText;
-    }
-
-    public void setMainVerseText(String mainVerseText) {
-        this.mainVerseText = mainVerseText;
-        notifyPropertyChanged(BR.mainVerseText);
-    }
 
     public void pickRandomVerse() {
         Random rand = new Random();
@@ -46,5 +39,56 @@ public class MainPageViewModel extends ViewModelBase {
         Verse verse = chapter.getVerses().get(iVerse);
 
         setMainVerseText(verse.getText());
+        setMainVerseBookAbbrev(book.getBookAbbrev());
+        setMainVerseChapter(chapter.getChapterOrder());
+        setMainVerseOrder(verse.getVerseOrder());
+    }
+
+    @Bindable
+    public String getMainVerseText() {
+        return mainVerseText;
+    }
+
+    public void setMainVerseText(String mainVerseText) {
+        if (this.mainVerseText != mainVerseText) {
+            this.mainVerseText = mainVerseText;
+            notifyPropertyChanged(BR.mainVerseText);
+        }
+    }
+
+    @Bindable
+    public String getMainVerseBookAbbrev() {
+        return mainVerseBookAbbrev;
+    }
+
+    public void setMainVerseBookAbbrev(String mainVerseBookAbbrev) {
+        if (this.mainVerseBookAbbrev != mainVerseBookAbbrev) {
+            this.mainVerseBookAbbrev = mainVerseBookAbbrev;
+            notifyPropertyChanged(BR.mainVerseBookAbbrev);
+        }
+    }
+
+    @Bindable
+    public int getMainVerseChapter() {
+        return mainVerseChapter;
+    }
+
+    public void setMainVerseChapter(int mainVerseChapter) {
+        if (this.mainVerseChapter != mainVerseChapter) {
+            this.mainVerseChapter = mainVerseChapter;
+            notifyPropertyChanged(BR.mainVerseChapter);
+        }
+    }
+
+    @Bindable
+    public int getMainVerseOrder() {
+        return mainVerseOrder;
+    }
+
+    public void setMainVerseOrder(int mainVerseOrder) {
+        if (this.mainVerseOrder != mainVerseOrder) {
+            this.mainVerseOrder = mainVerseOrder;
+            notifyPropertyChanged(BR.mainVerseOrder);
+        }
     }
 }

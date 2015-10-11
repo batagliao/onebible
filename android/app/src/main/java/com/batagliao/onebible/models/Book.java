@@ -30,4 +30,8 @@ public class Book {
     public String getBookName(){
         return BibleHelper.getBookName(bookOrder);
     }
+
+    public String getBookAbbrev(){
+        return BibleHelper.getBookAbbrev(bookOrder);
+    }
 }

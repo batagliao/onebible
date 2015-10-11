@@ -216,20 +216,20 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="@style/VerseOfTheDayAppearance.Address"
                             android:fontFamily="sans-serif-black"
-                            android:text="Gn"/>
+                            android:text="@{viewmodel.mainVerseBookAbbrev}"/>
                         <TextView
                             android:layout_marginEnd="4dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="@style/VerseOfTheDayAppearance.Address"
-                            android:text="6"
+                            android:text="@{String.valueOf(viewmodel.mainVerseChapter)}"
                             />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="@style/VerseOfTheDayAppearance.Address"
                             android:fontFamily="sans-serif-light"
-                            android:text="14"
+                            android:text="@{String.valueOf(viewmodel.mainVerseOrder)}"
                             />
                     </LinearLayout>
 
