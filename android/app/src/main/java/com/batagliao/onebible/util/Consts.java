@@ -3,6 +3,7 @@ package com.batagliao.onebible.util;
 public final class Consts {
 
     public static final String SELECTED_TRANSLATION_KEY = "selectedTranslation";
+    public static final String LAST_ACCESSED_ADDRESS_KEY = "lastAccessedAddress";
 
     public static final String BIB_FILE_EXTENSION = ".bib";
     public static final String BIB_FOLDER = "bibs";
