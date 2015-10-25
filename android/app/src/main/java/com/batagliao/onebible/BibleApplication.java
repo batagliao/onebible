@@ -1,8 +1,7 @@
 package com.batagliao.onebible;
 
 import android.app.Application;
-import android.content.Context;
-import android.content.res.Resources;
+import android.databinding.ObservableField;
 
 import com.batagliao.onebible.models.Bible;
 import com.batagliao.onebible.models.BibleAddress;
@@ -10,16 +9,17 @@ import com.batagliao.onebible.util.Consts;
 import com.google.gson.Gson;
 import com.pixplicity.easyprefs.library.Prefs;
 
-import java.io.IOException;
-
 
 public class BibleApplication extends Application {
 
 
     private static BibleApplication instance;
 
-    private Bible currentBible;
-    private BibleAddress lastAccessedAddress;
+    //private Bible currentBible;
+    //private BibleAddress lastAccessedAddress;
+
+    public final ObservableField<Bible> currentBible = new ObservableField<>();
+    public final ObservableField<BibleAddress> lastAccessedAddress = new ObservableField<>();
 
     public static BibleApplication getInstance() {
         return instance;
@@ -43,15 +43,15 @@ public class BibleApplication extends Application {
         // get last accessed address and converts it
         String lastAccessed = Prefs.getString(Consts.LAST_ACCESSED_ADDRESS_KEY, "");
         if (lastAccessed == "") {
-            lastAccessedAddress = new BibleAddress();
+            lastAccessedAddress.set(new BibleAddress());
         } else {
             Gson gson = new Gson();
-            lastAccessedAddress = gson.fromJson(lastAccessed, BibleAddress.class);
+            lastAccessedAddress.set(gson.fromJson(lastAccessed, BibleAddress.class));
         }
 
         //load bible
         try {
-            setCurrentBible(Bible.Load(selectedTranslation));
+            currentBible.set(Bible.Load(selectedTranslation));
         } catch (Exception e) {
             e.printStackTrace();
             //TODO: treat exception
@@ -59,25 +59,16 @@ public class BibleApplication extends Application {
 
     }
 
-    public Bible getCurrentBible() {
-        return currentBible;
-    }
 
-    public void setCurrentBible(Bible currentBible) {
-        this.currentBible = currentBible;
-    }
-
-
-    public BibleAddress getLastAccessedAddress() {
-        return lastAccessedAddress;
-    }
-
-    public void setLastAccessedAddress(BibleAddress value) {
-        lastAccessedAddress = value;
+    private void setLastAccessedAddress(BibleAddress value) {
+        lastAccessedAddress.set(value);
         Gson gson = new Gson();
         String json = gson.toJson(lastAccessedAddress);
         Prefs.putString(Consts.LAST_ACCESSED_ADDRESS_KEY, json);
     }
+
+
+
 }
 
 

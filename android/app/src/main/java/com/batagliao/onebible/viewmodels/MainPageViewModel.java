@@ -1,6 +1,7 @@
 package com.batagliao.onebible.viewmodels;
 
 import android.databinding.Bindable;
+import android.databinding.Observable;
 
 import com.batagliao.onebible.BR;
 import com.batagliao.onebible.BibleApplication;
@@ -24,7 +25,15 @@ public class MainPageViewModel extends ViewModelBase {
 
     private String startOrContinueDetailText = "";
 
-    private String BibleName = "";
+    public MainPageViewModel() {
+        // if currentBible change, all properties must be rebound
+        application.currentBible.addOnPropertyChangedCallback(new OnPropertyChangedCallback() {
+            @Override
+            public void onPropertyChanged(Observable sender, int propertyId) {
+                notifyChange();
+            }
+        });
+    }
 
     public void pickRandomVerse() {
         Random rand = new Random();
@@ -90,5 +99,10 @@ public class MainPageViewModel extends ViewModelBase {
             this.mainVerseOrder = mainVerseOrder;
             notifyPropertyChanged(BR.mainVerseOrder);
         }
+    }
+
+    @Bindable
+    public String getBibleName(){
+        return bible.getTitle();
     }
 }
