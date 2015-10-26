@@ -31,13 +31,13 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/main_startreading"
+                    android:text="@{viewmodel.startOrContinueTitleText}"
                     android:textAppearance="@style/MainMenuTextAppearance"
                     />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Genesis 1"
+                    android:text="@{viewmodel.startOrContinueDetailText}"
                     android:textAppearance="@style/MainMenuSubTextAppearance"/>
             </LinearLayout>
             <LinearLayout

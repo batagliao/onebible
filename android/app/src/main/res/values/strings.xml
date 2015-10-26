@@ -8,6 +8,7 @@
     <!-- Main page -->
     <string name="main_books">Books</string>
     <string name="main_startreading">Start reading</string>
+    <string name="main_continuereading">Continue reading</string>
     <string name="main_bookmarks">Bookmarks</string>
     <string name="main_search">Search</string>
     <string name="main_search_detail">Search for texts in the Bible</string>

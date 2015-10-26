@@ -4,10 +4,11 @@ import android.databinding.Bindable;
 import android.databinding.Observable;
 
 import com.batagliao.onebible.BR;
-import com.batagliao.onebible.BibleApplication;
+import com.batagliao.onebible.R;
 import com.batagliao.onebible.models.Book;
 import com.batagliao.onebible.models.Chapter;
 import com.batagliao.onebible.models.Verse;
+import com.batagliao.onebible.util.BibleHelper;
 
 import java.util.Random;
 
@@ -21,16 +22,20 @@ public class MainPageViewModel extends ViewModelBase {
     private int mainVerseChapter = 0;
     private int mainVerseOrder = 0;
 
-    private String startOrContinueTitleText = "";
-
-    private String startOrContinueDetailText = "";
-
     public MainPageViewModel() {
         // if currentBible change, all properties must be rebound
         application.currentBible.addOnPropertyChangedCallback(new OnPropertyChangedCallback() {
             @Override
             public void onPropertyChanged(Observable sender, int propertyId) {
                 notifyChange();
+            }
+        });
+
+        application.lastAccessedAddress.addOnPropertyChangedCallback(new OnPropertyChangedCallback() {
+            @Override
+            public void onPropertyChanged(Observable sender, int propertyId) {
+                notifyPropertyChanged(BR.startOrContinueTitleText);
+                notifyPropertyChanged(BR.startOrContinueDetailText);
             }
         });
     }
@@ -104,5 +109,19 @@ public class MainPageViewModel extends ViewModelBase {
     @Bindable
     public String getBibleName(){
         return bible.getTitle();
+    }
+
+    @Bindable
+    public String getStartOrContinueTitleText(){
+        if(application.lastAccessedAddress.get().getBookOrder() == 0){
+            return application.getString(R.string.main_startreading);
+        }else{
+            return application.getString(R.string.main_continuereading);
+        }
+    }
+
+    @Bindable
+    public String getStartOrContinueDetailText(){
+        return BibleHelper.getAddressText(application.lastAccessedAddress.get());
     }
 }

@@ -1,17 +1,16 @@
 package com.batagliao.onebible.models;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.TreeSet;
 
 public class BibleAddress {
 
     private int bookOrder;
     private int chapterOrder;
-    private List<Integer> verses = new ArrayList<>();
+    private TreeSet<Integer> verses = new TreeSet<>();
 
     public BibleAddress() {
-        bookOrder = 1;
-        chapterOrder = 1;
+        bookOrder = 0;
+        chapterOrder = 0;
     }
 
     public int getBookOrder() {
@@ -30,11 +29,11 @@ public class BibleAddress {
         this.chapterOrder = chapterOrder;
     }
 
-    public List<Integer> getVerses() {
+    public TreeSet<Integer> getVerses() {
         return verses;
     }
 
-    public void setVerses(List<Integer> verses) {
+    public void setVerses(TreeSet<Integer> verses) {
         this.verses = verses;
     }
 }
