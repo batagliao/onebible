@@ -4,46 +4,51 @@ Version: 2
 Organized by: Willie Tsang
 
 -->
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <color name="transparent">#00000000</color>
 
-    <color name="background_material_dark">#ff212121</color>
-    <color name="background_material_light">#fffafafa</color>
+    <color name="colorPrimary">@color/material_blue_A200</color>
+    <color name="colorPrimaryDark">@color/material_blue_700</color>
+    <color name="textColorPrimary">@color/primary_text_default_material_dark</color>
+    <color name="textColorSecondary">@color/secondary_text_material_dark</color>
 
-    <color name="ripple_material_light">#20444444</color>
-    <color name="ripple_material_dark">#20ffffff</color>
+    <color tools:override="true" name="background_material_dark">#ff212121</color>
+    <color tools:override="true" name="background_material_light">#fffafafa</color>
 
-    <color name="button_material_dark">#ff5a595b</color>
-    <color name="button_material_light">#ffd6d7d7</color>
+    <color tools:override="true" name="ripple_material_light">#20444444</color>
+    <color tools:override="true" name="ripple_material_dark">#20ffffff</color>
 
-    <color name="bright_foreground_material_dark">@color/white</color>
-    <color name="bright_foreground_material_light">@color/black</color>
+    <color tools:override="true" name="button_material_dark">#ff5a595b</color>
+    <color tools:override="true" name="button_material_light">#ffd6d7d7</color>
 
-    <color name="bright_foreground_disabled_material_dark">#80ffffff</color> <!-- White 50% -->
-    <color name="bright_foreground_disabled_material_light">#80000000</color> <!-- Black 50% -->
+    <color tools:override="true" name="bright_foreground_material_dark">@color/white</color>
+    <color tools:override="true" name="bright_foreground_material_light">@color/black</color>
 
-    <color name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
-    <color name="bright_foreground_inverse_material_light">@color/bright_foreground_material_dark</color>
+    <color tools:override="true" name="bright_foreground_disabled_material_dark">#80ffffff</color> <!-- White 50% -->
+    <color tools:override="true" name="bright_foreground_disabled_material_light">#80000000</color> <!-- Black 50% -->
 
-    <color name="dim_foreground_material_dark">#ffbebebe</color>
-    <color name="dim_foreground_material_light">#ff323232</color>
-    <color name="dim_foreground_disabled_material_dark">#80bebebe</color>
-    <color name="dim_foreground_disabled_material_light">#80323232</color>
+    <color tools:override="true" name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
+    <color tools:override="true" name="bright_foreground_inverse_material_light">@color/bright_foreground_material_dark</color>
 
-    <color name="hint_foreground_material_dark">#80ffffff</color>
-    <color name="hint_foreground_material_light">#80000000</color>
+    <color tools:override="true" name="dim_foreground_material_dark">#ffbebebe</color>
+    <color tools:override="true" name="dim_foreground_material_light">#ff323232</color>
+    <color tools:override="true" name="dim_foreground_disabled_material_dark">#80bebebe</color>
+    <color tools:override="true" name="dim_foreground_disabled_material_light">#80323232</color>
 
-    <color name="highlighted_text_material_dark">#6640c4ff</color> <!-- TODO: This is 40% alpha on the default accent color. -->
-    <color name="highlighted_text_material_light">#6640c4ff</color> <!-- TODO: This is 40% alpha on the default accent color. -->
+    <color tools:override="true" name="hint_foreground_material_dark">#80ffffff</color>
+    <color tools:override="true" name="hint_foreground_material_light">#80000000</color>
+
+    <color tools:override="true" name="highlighted_text_material_dark">#6640c4ff</color> <!-- TODO: This is 40% alpha on the default accent color. -->
+    <color tools:override="true" name="highlighted_text_material_light">#6640c4ff</color> <!-- TODO: This is 40% alpha on the default accent color. -->
 
     <!-- Text & foreground colors -->
 
-    <color name="primary_text_default_material_light">#de000000</color> <!-- Black 87% -->
+    <color tools:override="true" name="primary_text_default_material_light">#de000000</color> <!-- Black 87% -->
     <color name="secondary_text_material_light">#8a000000</color> <!-- Black 54% -->
     <color name="tertiary_text_material_light">#8a000000</color> <!-- Black 54% (TODO: same as secondary?) -->
 
-    <color name="primary_text_default_material_dark">#deffffff</color> <!-- White 87% -->
+    <color tools:override="true" name="primary_text_default_material_dark">#deffffff</color> <!-- White 87% -->
     <color name="secondary_text_material_dark">#61ffffff</color> <!-- White 38% -->
     <color name="tertiary_text_material_dark">#61ffffff</color> <!-- White 38% (TODO: same as secondary?) -->
 

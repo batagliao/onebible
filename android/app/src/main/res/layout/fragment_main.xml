@@ -41,6 +41,8 @@
                     android:textAppearance="@style/MainMenuSubTextAppearance"/>
             </LinearLayout>
             <LinearLayout
+                android:transitionName="books"
+                android:onClick="@{viewmodel.onClickBooks}"
                 style="@style/MainMenuItemContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -165,8 +167,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:contentScrim="@color/material_blue_grey_500"
-            app:statusBarScrim="@color/material_blue_grey_500"
+            app:contentScrim="@color/colorPrimary"
+            app:statusBarScrim="@color/colorPrimaryDark"
             app:expandedTitleTextAppearance="@style/ExpandedTextAppearance"
             >
 

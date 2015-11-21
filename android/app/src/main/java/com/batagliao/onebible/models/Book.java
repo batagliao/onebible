@@ -1,5 +1,7 @@
 package com.batagliao.onebible.models;
 
+import android.databinding.Bindable;
+
 import com.batagliao.onebible.util.BibleHelper;
 
 import java.util.ArrayList;
