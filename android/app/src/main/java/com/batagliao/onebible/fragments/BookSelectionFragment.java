@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.batagliao.onebible.BibleApplication;
 import com.batagliao.onebible.R;
 import com.batagliao.onebible.adapters.BookSelectionAdapter;
+import com.batagliao.onebible.interfaces.FragmentPlaceholderActivity;
 import com.batagliao.onebible.viewmodels.BooksSelectionViewModel;
 import com.batagliao.onebible.viewmodels.ViewModelBase;
 
@@ -34,8 +35,9 @@ public class BookSelectionFragment extends Fragment {
 //    private String mParam1;
 //    private String mParam2;
 
-    private FragmentInteractionListener mListener;
     private BookSelectionAdapter adapter;
+    private FragmentPlaceholderActivity mActivity;
+
 
     public BookSelectionFragment() {
         // Required empty public constructor
@@ -84,7 +86,7 @@ public class BookSelectionFragment extends Fragment {
         recycler.setHasFixedSize(true);
         recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        BooksSelectionViewModel viewModel = mListener.getViewModel();
+        BooksSelectionViewModel viewModel = new BooksSelectionViewModel();
         adapter = new BookSelectionAdapter(getContext(), viewModel.getBooks());
         recycler.setAdapter(adapter);
 
@@ -103,18 +105,18 @@ public class BookSelectionFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof FragmentInteractionListener) {
-            mListener = (FragmentInteractionListener) context;
+        if (context instanceof FragmentPlaceholderActivity) {
+            mActivity = (FragmentPlaceholderActivity) context;
         } else {
             throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
+                    + " must implement FragmentPlaceholderActivity");
         }
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+        mActivity = null;
     }
 
     /**
@@ -127,11 +129,11 @@ public class BookSelectionFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface FragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-
-        BooksSelectionViewModel getViewModel();
-
-    }
+//    public interface FragmentInteractionListener {
+//        // TODO: Update argument type and name
+//        void onFragmentInteraction(Uri uri);
+//
+//        BooksSelectionViewModel getViewModel();
+//
+//    }
 }

@@ -1,18 +1,13 @@
 package com.batagliao.onebible.viewmodels;
 
-import android.content.Context;
-import android.content.Intent;
 import android.databinding.Bindable;
 import android.databinding.Observable;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.view.View;
-import android.widget.Toast;
 
 import com.batagliao.onebible.BR;
-import com.batagliao.onebible.BibleApplication;
 import com.batagliao.onebible.R;
-import com.batagliao.onebible.activities.BooksActivity;
-import com.batagliao.onebible.helpers.ActivityHelper;
+import com.batagliao.onebible.fragments.BookSelectionFragment;
+import com.batagliao.onebible.interfaces.FragmentPlaceholderActivity;
 import com.batagliao.onebible.models.Book;
 import com.batagliao.onebible.models.Chapter;
 import com.batagliao.onebible.models.Verse;
@@ -134,7 +129,10 @@ public class MainPageViewModel extends ViewModelBase {
     }
 
     public void onClickBooks(View view){
-        ActivityHelper.transitionToActivityWithScene(view.getContext(), BooksActivity.class,
-                view, "books");
+//        ActivityHelper.transitionToActivityWithScene(view.getContext(), BooksActivity.class,
+//                view, "books");
+        FragmentPlaceholderActivity activity = (FragmentPlaceholderActivity) view.getContext();
+        BookSelectionFragment fragment = BookSelectionFragment.newIntance();
+        activity.PlaceFragment(fragment);
     }
 }
