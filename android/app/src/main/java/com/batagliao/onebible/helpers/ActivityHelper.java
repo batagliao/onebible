@@ -19,16 +19,16 @@ public final class ActivityHelper {
         return (AppCompatActivity) view.getContext();
     }
 
-    public static void transitionToActivityWithScene(Context activityContext, Class<? extends Activity> targetActivityClass,
-                                                     View sourceView, String sharedElementName) {
-        Intent intent = new Intent(activityContext, targetActivityClass);
-        Activity sourceActivity = (Activity) activityContext;
-
-        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                sourceActivity, sourceView, sharedElementName);
-
-        activityContext.startActivity(intent, options.toBundle());
-    }
+//    public static void transitionToActivityWithScene(Context activityContext, Class<? extends Activity> targetActivityClass,
+//                                                     View sourceView, String sharedElementName) {
+//        Intent intent = new Intent(activityContext, targetActivityClass);
+//        Activity sourceActivity = (Activity) activityContext;
+//
+//        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+//                sourceActivity, sourceView, sharedElementName);
+//
+//        activityContext.startActivity(intent, options.toBundle());
+//    }
 
     public static void InsertFragment(Fragment fragment, View rootView) {
         FragmentManager fragmentManager = getActivity(rootView).getSupportFragmentManager();

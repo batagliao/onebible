@@ -1,7 +1,7 @@
 package com.batagliao.onebible.fragments;
 
 import android.content.Context;
-import android.net.Uri;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,12 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.batagliao.onebible.BibleApplication;
 import com.batagliao.onebible.R;
 import com.batagliao.onebible.adapters.BookSelectionAdapter;
-import com.batagliao.onebible.interfaces.FragmentPlaceholderActivity;
+import com.batagliao.onebible.databinding.FragmentBookSelectionListBinding;
 import com.batagliao.onebible.viewmodels.BooksSelectionViewModel;
-import com.batagliao.onebible.viewmodels.ViewModelBase;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,11 +34,13 @@ public class BookSelectionFragment extends Fragment {
 //    private String mParam2;
 
     private BookSelectionAdapter adapter;
-    private FragmentPlaceholderActivity mActivity;
+    private BooksSelectionViewModel viewmodel;
+//    private FragmentPlaceholderActivity mActivity;
 
 
     public BookSelectionFragment() {
         // Required empty public constructor
+        viewmodel = new BooksSelectionViewModel();
     }
 
     /**
@@ -80,14 +80,18 @@ public class BookSelectionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_book_selection_list, container, false);
+
+        FragmentBookSelectionListBinding binding = DataBindingUtil.inflate(inflater,
+                R.layout.fragment_book_selection_list, container, false);
+        binding.setViewmodel(viewmodel);
+
+        View rootView = binding.getRoot();
         RecyclerView recycler = (RecyclerView) rootView.findViewById(R.id.list);
 
         recycler.setHasFixedSize(true);
         recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        BooksSelectionViewModel viewModel = new BooksSelectionViewModel();
-        adapter = new BookSelectionAdapter(getContext(), viewModel.getBooks());
+        adapter = new BookSelectionAdapter(getContext(), viewmodel.getBooks());
         recycler.setAdapter(adapter);
 
         return rootView;
@@ -102,22 +106,22 @@ public class BookSelectionFragment extends Fragment {
 //        }
 //    }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof FragmentPlaceholderActivity) {
-            mActivity = (FragmentPlaceholderActivity) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement FragmentPlaceholderActivity");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mActivity = null;
-    }
+//    @Override
+//    public void onAttach(Context context) {
+//        super.onAttach(context);
+//        if (context instanceof FragmentPlaceholderActivity) {
+//            mActivity = (FragmentPlaceholderActivity) context;
+//        } else {
+//            throw new RuntimeException(context.toString()
+//                    + " must implement FragmentPlaceholderActivity");
+//        }
+//    }
+//
+//    @Override
+//    public void onDetach() {
+//        super.onDetach();
+//        mActivity = null;
+//    }
 
     /**
      * This interface must be implemented by activities that contain this

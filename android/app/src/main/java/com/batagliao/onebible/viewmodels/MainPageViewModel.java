@@ -7,11 +7,11 @@ import android.view.View;
 import com.batagliao.onebible.BR;
 import com.batagliao.onebible.R;
 import com.batagliao.onebible.fragments.BookSelectionFragment;
-import com.batagliao.onebible.interfaces.FragmentPlaceholderActivity;
 import com.batagliao.onebible.models.Book;
 import com.batagliao.onebible.models.Chapter;
 import com.batagliao.onebible.models.Verse;
 import com.batagliao.onebible.util.BibleHelper;
+import com.batagliao.onebible.util.NavigationService;
 
 import java.util.Random;
 
@@ -131,8 +131,11 @@ public class MainPageViewModel extends ViewModelBase {
     public void onClickBooks(View view){
 //        ActivityHelper.transitionToActivityWithScene(view.getContext(), BooksActivity.class,
 //                view, "books");
-        FragmentPlaceholderActivity activity = (FragmentPlaceholderActivity) view.getContext();
+
         BookSelectionFragment fragment = BookSelectionFragment.newIntance();
-        activity.PlaceFragment(fragment);
+        NavigationService.getInstance().Navigate(view.getContext(), fragment);
+
+//        FragmentPlaceholderActivity activity = (FragmentPlaceholderActivity) view.getContext();
+//        activity.PlaceFragment(fragment);
     }
 }
