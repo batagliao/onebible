@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
-<data>
-    <import type="com.batagliao.onebible.models.Book"/>
-    <variable
-        name="book"
-        type="Book" />
-</data>
 <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/activity_horizontal_margin">
+    android:paddingStart="10dp"
+    android:paddingTop="10dp"
+    >
 
     <RelativeLayout
-        android:padding="@dimen/text_margin"
+        android:padding="8dp"
         android:background="@color/Chocolate"
-        android:layout_width="80dp"
+        android:layout_width="75dp"
         android:layout_height="80dp">
         <TextView
-            android:textSize="30sp"
+            android:id="@+id/text_bookItem_BookAbbrev"
+            android:textSize="20sp"
             android:textColor="@color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
             android:textAlignment="center"
-            android:text="Lca"
+            android:gravity="center_horizontal"
+            android:text="BkAbbrev"
            />
     </RelativeLayout>
 
@@ -34,18 +32,15 @@
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-        <!--<TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{viewmodel.bookName}"
-            />-->
         <TextView
+            android:id="@+id/text_bookItem_BookName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="O Nome do Livro"
+            android:text="Name of Book"
             android:textSize="28sp"
             />
         <TextView
+            android:id="@+id/text_bookItem_ChapterQty"
             android:layout_marginStart="1dp"
             android:textSize="18sp"
             android:layout_width="match_parent"
@@ -57,4 +52,3 @@
 
 
 </LinearLayout>
-</layout>

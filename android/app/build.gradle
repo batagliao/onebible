@@ -1,9 +1,13 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.android.databinding'
 
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
+
+    dataBinding{
+        enabled = true
+    }
+
     defaultConfig {
         applicationId "com.batagliao.onebible"
         minSdkVersion 17

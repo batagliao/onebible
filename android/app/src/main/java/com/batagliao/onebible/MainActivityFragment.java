@@ -12,6 +12,8 @@ import com.batagliao.onebible.databinding.FragmentMainBinding;
 import com.batagliao.onebible.interfaces.NavigationEnabledActivity;
 import com.batagliao.onebible.viewmodels.MainPageViewModel;
 
+import java.util.zip.Inflater;
+
 
 /**
  * A placeholder fragment containing a simple view.
@@ -30,13 +32,16 @@ public class MainActivityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        FragmentMainBinding binding =  DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false);
+
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
+
+        FragmentMainBinding binding =  FragmentMainBinding.bind(view);
 
         MainPageViewModel viewModel = new MainPageViewModel();
         viewModel.pickRandomVerse();
         
         binding.setViewmodel(viewModel);
-        return binding.getRoot();
+        return view;
     }
 
 //    @Override
