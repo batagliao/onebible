@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.batagliao.onebible.R;
 import com.batagliao.onebible.models.Book;
+import com.batagliao.onebible.models.BookTypeEnum;
+import com.batagliao.onebible.util.BibleHelper;
 
 import java.util.List;
 
@@ -49,8 +51,30 @@ public class BookSelectionAdapter extends RecyclerView.Adapter<BookSelectionAdap
         int bookSize = book.getChapters().size();
         holder.bookAbbrev.setText(book.getBookAbbrev());
         holder.bookName.setText(book.getBookName());
-        holder.chapterQty.setText(res.getQuantityString(R.plurals.chapters, bookSize, bookSize ));
+        holder.chapterQty.setText(res.getQuantityString(R.plurals.chapters, bookSize, bookSize));
+        holder.bookFrame.setBackgroundColor(getColorForBook(book));
 
+    }
+
+    private int getColorForBook(Book book) {
+        Resources res = context.getResources();
+        BookTypeEnum type = BibleHelper.getBookType(book.getBookOrder());
+
+        switch (type){
+            case Pentateuch:
+                return res.getColor(R.color.colorPentateuch);
+            case Historic:
+                return res.getColor(R.color.colorHistoric);
+            case Poetic:
+                return res.getColor(R.color.colorPoetic);
+            case Prophetic:
+                return res.getColor(R.color.colorProphetic);
+            case Gospel:
+                return res.getColor(R.color.colorGospel);
+            case Epistle:
+                return res.getColor(R.color.colorEpistle);
+        }
+        return 0;
     }
 
     @Override
@@ -63,6 +87,7 @@ public class BookSelectionAdapter extends RecyclerView.Adapter<BookSelectionAdap
         protected TextView bookAbbrev;
         protected TextView bookName;
         protected TextView chapterQty;
+        protected View bookFrame;
 
         public BookSelectionViewHolder(View itemView) {
             super(itemView);
@@ -70,6 +95,7 @@ public class BookSelectionAdapter extends RecyclerView.Adapter<BookSelectionAdap
             bookAbbrev = (TextView) itemView.findViewById(R.id.text_bookItem_BookAbbrev);
             bookName = (TextView) itemView.findViewById(R.id.text_bookItem_BookName);
             chapterQty = (TextView) itemView.findViewById(R.id.text_bookItem_ChapterQty);
+            bookFrame = itemView.findViewById(R.id.item_book_frame);
         }
 
     }

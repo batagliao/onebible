@@ -78,7 +78,7 @@ public final class BibleHelper {
     }
 
     public static TestamentEnum getTestament(int bookOrder){
-        if(bookOrder > 0){
+        if(bookOrder < 40){
             return TestamentEnum.OldTestament;
         }
         return TestamentEnum.NewTestament;

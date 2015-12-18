@@ -9,6 +9,7 @@
     >
 
     <RelativeLayout
+        android:id="@+id/item_book_frame"
         android:padding="8dp"
         android:background="@color/Chocolate"
         android:layout_width="75dp"
