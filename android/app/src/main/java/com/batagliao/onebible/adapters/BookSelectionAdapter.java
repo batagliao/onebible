@@ -46,9 +46,10 @@ public class BookSelectionAdapter extends RecyclerView.Adapter<BookSelectionAdap
 
         Resources res = context.getResources();
 
+        int bookSize = book.getChapters().size();
         holder.bookAbbrev.setText(book.getBookAbbrev());
         holder.bookName.setText(book.getBookName());
-        holder.chapterQty.setText(res.getQuantityString(R.plurals.chapters, book.getChapters().size()));
+        holder.chapterQty.setText(res.getQuantityString(R.plurals.chapters, bookSize, bookSize ));
 
     }
 

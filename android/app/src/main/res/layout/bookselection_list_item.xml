@@ -4,8 +4,8 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingStart="10dp"
-    android:paddingTop="10dp"
+    android:paddingStart="15dp"
+    android:paddingTop="12dp"
     >
 
     <RelativeLayout
@@ -19,10 +19,7 @@
             android:textColor="@color/white"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:textAlignment="center"
-            android:gravity="center_horizontal"
+            android:gravity="center"
             android:text="BkAbbrev"
            />
     </RelativeLayout>

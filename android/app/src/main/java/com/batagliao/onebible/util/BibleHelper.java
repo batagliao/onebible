@@ -4,8 +4,11 @@ import android.content.Context;
 import android.content.res.Resources;
 
 import com.batagliao.onebible.BibleApplication;
+import com.batagliao.onebible.R;
 import com.batagliao.onebible.models.Bible;
 import com.batagliao.onebible.models.BibleAddress;
+import com.batagliao.onebible.models.BookTypeEnum;
+import com.batagliao.onebible.models.TestamentEnum;
 import com.batagliao.onebible.models.Verse;
 
 import org.jetbrains.annotations.NotNull;
@@ -74,4 +77,50 @@ public final class BibleHelper {
         return address + ":" + verseAddresses;
     }
 
+    public static TestamentEnum getTestament(int bookOrder){
+        if(bookOrder > 0){
+            return TestamentEnum.OldTestament;
+        }
+        return TestamentEnum.NewTestament;
+    }
+
+    public static BookTypeEnum getBookType(int bookOrder){
+        if (getTestament(bookOrder) == TestamentEnum.OldTestament)
+        {
+            if (bookOrder <= 5)
+                return BookTypeEnum.Pentateuch;
+            if (bookOrder <= 17)
+                return BookTypeEnum.Historic;
+            if (bookOrder <= 22)
+                return BookTypeEnum.Poetic;
+            //if (BookOrder <= 39)
+            return BookTypeEnum.Prophetic;
+        }
+
+        //new testament
+        if (bookOrder <= 43)
+            return BookTypeEnum.Gospel;
+        if (bookOrder <= 65)
+            return BookTypeEnum.Epistle;
+        return BookTypeEnum.Prophetic; //66
+    }
+
+    public static String getBookTypeText(BookTypeEnum bookType){
+        Resources res = BibleApplication.getInstance().getResources();
+        switch (bookType){
+            case Pentateuch:
+                return res.getString(R.string.Pentateuch);
+            case Historic:
+                return res.getString(R.string.Historic);
+            case Poetic:
+                return res.getString(R.string.Poetic);
+            case Prophetic:
+                return res.getString(R.string.Prophetic);
+            case Gospel:
+                return res.getString(R.string.Gospel);
+            case Epistle:
+                return res.getString(R.string.Epistle);
+        }
+        return "";
+    }
 }

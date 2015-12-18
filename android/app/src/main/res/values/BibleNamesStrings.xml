@@ -133,4 +133,12 @@
     <string name="BookAbbrev64">3Jn</string>
     <string name="BookAbbrev65">Jude</string>
     <string name="BookAbbrev66">Rev</string>
+
+    <string name="Pentateuch">Pentateuch</string>
+    <string name="Historic">Historic</string>
+    <string name="Poetic">Poetic</string>
+    <string name="Prophetic">Prophetic</string>
+    <string name="Gospel">Gospel</string>
+    <string name="Epistle">Epistle</string>
+
 </resources>
