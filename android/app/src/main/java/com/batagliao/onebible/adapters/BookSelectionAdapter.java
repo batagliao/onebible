@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
+import android.provider.SyncStateContract;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +31,7 @@ public class BookSelectionAdapter extends RecyclerView.Adapter<BookSelectionAdap
         this.context = context;
         this.books = books;
     }
+
 
     @Override
     public BookSelectionViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
