@@ -1,64 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    card_view:cardElevation="4dp"
-    android:layout_marginTop="16dp"
-    android:layout_marginStart="16dp"
-    android:layout_marginEnd="16dp"
-    android:layout_marginBottom="0dp">
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/item_book"
-        android:clickable="true"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        >
-
-        <RelativeLayout
-            android:id="@+id/item_book_frame"
-            android:layout_width="75dp"
-            android:layout_height="80dp"
-            android:background="@color/Chocolate"
-            android:padding="8dp">
-
-            <TextView
-                android:id="@+id/text_bookItem_BookAbbrev"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="BkAbbrev"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
-        </RelativeLayout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="book"
+            type="com.batagliao.onebible.models.Book" />
+    </data>
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        card_view:cardElevation="4dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
+            android:id="@+id/item_book"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/text_bookItem_BookName"
-                android:layout_width="match_parent"
+            <!-- TODO: bind color -->
+
+            <RelativeLayout
+                android:id="@+id/item_book_frame"
+                android:layout_width="75dp"
+                android:layout_height="80dp"
+                android:background="@color/Chocolate"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/text_bookItem_BookAbbrev"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    tools:text="Gen"
+                    android:text="@{book.bookAbbrev}"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Name of Book"
-                android:textSize="28sp" />
+                android:orientation="vertical"
+                android:padding="10dp">
 
-            <TextView
-                android:id="@+id/text_bookItem_ChapterQty"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="1dp"
-                android:text="55 capítulos"
-                android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/text_bookItem_BookName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="Genesis"
+                    android:text="@{book.bookName}"
+                    android:textSize="28sp" />
 
+                <!-- TODO: bind chapter quantity -->
+
+                <TextView
+                    android:id="@+id/text_bookItem_ChapterQty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="1dp"
+                    android:text="55 capítulos"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-</android.support.v7.widget.CardView>
+    </android.support.v7.widget.CardView>
 
 
+</layout>
