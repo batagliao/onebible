@@ -31,12 +31,14 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    tools:text="Start reading"
                     android:text="@{viewmodel.startOrContinueTitleText}"
                     android:textAppearance="@style/MainMenuTextAppearance"
                     />
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    tools:text="Genesis 1"
                     android:text="@{viewmodel.startOrContinueDetailText}"
                     android:textAppearance="@style/MainMenuSubTextAppearance"/>
             </LinearLayout>
@@ -56,6 +58,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@{viewmodel.bibleName}"
+                    tools:text="King James"
                     android:textAppearance="@style/MainMenuSubTextAppearance"/>
             </LinearLayout>
             <LinearLayout
@@ -203,6 +206,7 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="@style/VerseOfTheDayAppearance"
                         android:text="@{viewmodel.mainVerseText}"
+                        tools:text="Some ver very long text goes here"
                         />
                     <LinearLayout
                         android:layout_marginTop="10dp"
@@ -218,12 +222,14 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="@style/VerseOfTheDayAppearance.Address"
                             android:fontFamily="sans-serif-black"
+                            tools:text="Gen"
                             android:text="@{viewmodel.mainVerseBookAbbrev}"/>
                         <TextView
                             android:layout_marginEnd="4dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="@style/VerseOfTheDayAppearance.Address"
+                            tools:text="1"
                             android:text="@{String.valueOf(viewmodel.mainVerseChapter)}"
                             />
                         <TextView
@@ -231,6 +237,7 @@
                             android:layout_height="wrap_content"
                             android:textAppearance="@style/VerseOfTheDayAppearance.Address"
                             android:fontFamily="sans-serif-light"
+                            tools:text="1"
                             android:text="@{String.valueOf(viewmodel.mainVerseOrder)}"
                             />
                     </LinearLayout>

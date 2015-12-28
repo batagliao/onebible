@@ -1,41 +1,39 @@
 package com.batagliao.onebible.fragments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.support.v7.widget.SearchView;
+
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.batagliao.onebible.R;
 import com.batagliao.onebible.adapters.BookSelectionAdapter;
 import com.batagliao.onebible.databinding.FragmentBookSelectionListBinding;
+import com.batagliao.onebible.models.Book;
 import com.batagliao.onebible.viewmodels.BooksSelectionViewModel;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link BookSelectionFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link BookSelectionFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class BookSelectionFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-//    private static final String ARG_PARAM1 = "param1";
-//    private static final String ARG_PARAM2 = "param2";
+import java.util.ArrayList;
+import java.util.List;
 
-    // TODO: Rename and change types of parameters
-//    private String mParam1;
-//    private String mParam2;
+
+public class BookSelectionFragment extends Fragment implements SearchView.OnQueryTextListener {
 
     private BookSelectionAdapter adapter;
     private BooksSelectionViewModel viewmodel;
-//    private FragmentPlaceholderActivity mActivity;
+
 
 
     public BookSelectionFragment() {
@@ -43,23 +41,6 @@ public class BookSelectionFragment extends Fragment {
         viewmodel = new BooksSelectionViewModel();
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment BookSelectionFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-//    public static BookSelectionFragment newInstance(String param1, String param2) {
-//        BookSelectionFragment fragment = new BookSelectionFragment();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
     public static BookSelectionFragment newIntance() {
         BookSelectionFragment fragment = new BookSelectionFragment();
         return fragment;
@@ -69,11 +50,6 @@ public class BookSelectionFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
-
     }
 
     @Override
@@ -94,19 +70,71 @@ public class BookSelectionFragment extends Fragment {
         adapter = new BookSelectionAdapter(getContext(), viewmodel.getBooks());
         recycler.setAdapter(adapter);
 
+        AppCompatActivity activity = (AppCompatActivity)getActivity();
+        Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.bookSelectionToolbar);
+        activity.setSupportActionBar(toolbar);
+
         return rootView;
         //return inflater.inflate(R.layout.fragment_book_selection_list, container, false);
 
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-//    public void onButtonPressed(Uri uri) {
-//        if (mListener != null) {
-//            mListener.onFragmentInteraction(uri);
-//        }
-//    }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_bookselection, menu);
+        final MenuItem item = menu.findItem(R.id.action_search);
+        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(item);
+        searchView.setOnQueryTextListener(this);
 
-//    @Override
+        MenuItemCompat.setOnActionExpandListener(item, new MenuItemCompat.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem item) {
+                // Do something when collapsed
+                adapter.setFilter(viewmodel.getBooks());
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem item) {
+                // Do something when expanded
+                return true; // Return true to expand action view
+            }
+        });
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        final List<Book> books = filter(viewmodel.getBooks(), newText);
+        adapter.setFilter(books);
+        return true;
+    }
+
+    private List<Book> filter(List<Book> books, String query) {
+        query = query.toLowerCase();
+
+        final List<Book> filteredBooks = new ArrayList<>();
+        for (Book book : books) {
+            final String text = book.getBookName().toLowerCase();
+            if (text.contains(query)) {
+                filteredBooks.add(book);
+            }
+        }
+        return filteredBooks;
+    }
+
+    //    @Override
 //    public void onAttach(Context context) {
 //        super.onAttach(context);
 //        if (context instanceof FragmentPlaceholderActivity) {
@@ -123,21 +151,5 @@ public class BookSelectionFragment extends Fragment {
 //        mActivity = null;
 //    }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-//    public interface FragmentInteractionListener {
-//        // TODO: Update argument type and name
-//        void onFragmentInteraction(Uri uri);
-//
-//        BooksSelectionViewModel getViewModel();
-//
-//    }
+
 }
