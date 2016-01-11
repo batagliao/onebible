@@ -3,32 +3,55 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewmodel"
-            type="com.batagliao.onebible.viewmodels.BooksSelectionViewModel"/>
+            type="com.batagliao.onebible.viewmodels.BooksSelectionViewModel" />
 
     </data>
+
     <android.support.design.widget.CoordinatorLayout
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context="com.batagliao.onebible.fragments.BookSelectionFragment"
-        >
+        tools:context="com.batagliao.onebible.fragments.BookSelectionFragment">
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+
             <android.support.v7.widget.Toolbar
                 android:id="@+id/bookSelectionToolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:title="@string/books_Title"
+                app:layout_scrollFlags="scroll|enterAlways"
                 app:subtitle="@{viewmodel.bibleName}"
-                app:layout_scrollFlags="scroll|enterAlways">
+                app:title="@string/books_Title">
 
             </android.support.v7.widget.Toolbar>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize">
+
+                <ImageButton
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@null"
+                    android:src="@drawable/icon_list"
+                    android:padding="12dp"/>
+
+                <ImageButton
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@null"
+                    android:src="@drawable/icon_grid"
+                    android:padding="12dp" />
+            </LinearLayout>
+            
 
         </android.support.design.widget.AppBarLayout>
 
@@ -43,16 +66,14 @@
             &lt;!&ndash; here goes my fragments &ndash;&gt;
         </android.support.v4.widget.NestedScrollView>-->
 
-        <android.support.v7.widget.RecyclerView
-            xmlns:android="http://schemas.android.com/apk/res/android"
+        <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
             android:layout_marginBottom="10dp"
-            >
+            android:scrollbars="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         </android.support.v7.widget.RecyclerView>
 
